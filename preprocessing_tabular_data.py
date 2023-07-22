@@ -60,3 +60,18 @@ def find_files_matching_pattern(levels_up, pattern, current_directory=None):
                 matched_paths.append(file_path)
 
     return matched_paths
+
+def calc_leng_val_series(series) -> pd.Series :
+    """
+    Example
+    -------
+    print(calc_leng_val_series(pd.Series(['Alice', 'has', 'cat'])))
+
+        0    5
+        1    3
+        2    3
+        dtype: int64
+        
+    """
+    return series.str.len()
+
