@@ -75,3 +75,35 @@ def calc_leng_val_series(series) -> pd.Series :
     """
     return series.str.len()
 
+def check_if_frames_are_equal(df_a, df_b) -> bool :
+    """
+    Checks if two dataframes are equal, regardless of the order of the columns.
+
+    Parameters
+    ----------
+    df_a : pandas.DataFrame.
+        First dataframe.
+    df_b : pandas.DataFrame.
+        Second dataframe.
+    
+    Returns
+    -------
+    bool.
+        True if the dataframes are equal, False otherwise.
+    
+    Example
+    -------
+    df_a = pd.DataFrame({ 0: ['a', 'b', 'c'], 1: [9, 8, 7], 2: [True, True, False] })
+    df_b = pd.DataFrame({ 0: [9, 8, 7], 1: [True, True, False], 2: ['a', 'b', 'c'] })
+    df_c = pd.DataFrame({ 0: [9, 8, 7], 1: [True, True, False], 2: ['a', 'd', 'c'] })
+
+    check_if_frames_are_equal(df_a, df_b)
+        >>> True
+    
+    check_if_frames_are_equal(df_a, df_c)
+        >>> False
+    
+    """
+    
+    return {tuple(df_a[c]) for c in df_a.columns} == {tuple(df_b[c]) for c in df_b.columns}
+
