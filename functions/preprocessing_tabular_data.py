@@ -77,7 +77,8 @@ def calc_leng_val_series(series) -> pd.Series :
 
 def check_if_frames_are_equal(df_a, df_b) -> bool :
     """
-    Checks if two dataframes are equal, regardless of the order of the columns.
+    Checks if two dataframes are equal (have the same columns),
+    regardless of the order of the columns.
 
     Parameters
     ----------
